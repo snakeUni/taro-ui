@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import { Text } from '@tarojs/components'
+import classnames from 'classnames'
+import { Text, View } from '@tarojs/components'
 
 import AtComponent from '../../common/component'
 
@@ -57,20 +57,28 @@ export default class AtIcon extends AtComponent {
     } = this.props
 
     const rootStyle = {
-      fontSize: `${Taro.pxTransform(parseInt(size) * 2)}`,
+      // fontSize: `${Taro.pxTransform(parseInt(size) * 2)}`,
+      fontSize: `${parseInt(size)}px`,
       color
     }
+    const icon = `${prefixClass}-${value}`
+    const a = 'at-icon'
+    const b = 'at-icon-clock'
+    console.error('rootStyle', prefixClass, icon, className)
+    // const classObject = classnames({
+    //   [prefixClass]: true,
+    //   [icon]: true,
+    //   [className]: true,
+    // })
     return (
-      <Text
-        className={classNames(
-          prefixClass,
-          `${prefixClass}-${value}`,
-          className
-        )}
+      <View
+        // className={classnames(a, b)}
+        className={classnames(prefixClass, icon, className)}
+        // className={classObject}
         style={this.mergeStyle(rootStyle, customStyle)}
         onClick={this.handleClick.bind(this)}
       >
-      </Text>
+      </View>
     )
   }
 }
