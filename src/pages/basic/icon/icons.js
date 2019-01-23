@@ -14,7 +14,7 @@ export default {
     // 'subtract',
     // 'check',
     // 'close',
-    'clock',
+    'clock'
     // 'credit-card',
     // 'download-cloud',
     // 'download',
